@@ -1,14 +1,11 @@
-const http = require('http');
-
-const hostname = 'localhost';
+const express = require('express');
+const app = express();
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World, this is a simple Node server');
-})
+app.get('/', (req, res) => {
+    res.send('Hello World, this is a Node server with Express.')
+});
 
-server.listen(port, hostname, () => {
-    console.log(`The server is running on https//${hostname}:${port}/`);
+app.listen(port, () => {
+    console.log(`The server is running on port ${port}`);
 });
